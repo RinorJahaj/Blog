@@ -20,11 +20,13 @@
                 <input type="text" name="title" id="title" class="form-control"
                     value="{{ isset($post) ? $post->title : '' }}">
             </div>
+
             <div class="form-group">
                 <label for="description">Description</label>
                 <textarea name="description" id="description" cols="5" rows="5"
                     class="form-control">{{ isset($post) ? $post->description : '' }}</textarea>
             </div>
+
             <div class="form-group">
                 <label for="content">Content</label>
                 <input type="hidden" id="content" name="content" value="{{ isset($post) ? $post->content : '' }}">
@@ -36,6 +38,17 @@
                 <img src="{{ asset($post->image) }}" alt="" style="width: 100%">
             </div>
             @endif
+
+            <div class="form-group">
+                <label for="category">Category</label>
+                <select name="category" id="category" class="form-control">
+                    @foreach($categories as $category)
+                    <option value="{{ $category->id }}">
+                        {{ $category->name }}
+                    </option>
+                    @endforeach
+                </select>
+            </div>
 
             <div class="form-group">
                 <label for="image">Image</label>

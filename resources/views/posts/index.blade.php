@@ -14,6 +14,7 @@
             <thead>
                 <th>Image</th>
                 <th>Title</th>
+                <th>Category</th>
                 <th></th>
                 <th></th>
             </thead>
@@ -24,6 +25,7 @@
                         <img src="{{ asset($post->image) }}" width="100px" height="70px" alt="" srcset="">
                     </td>
                     <td>{{ $post->title }}</td>
+
 
                     @if($post->trashed())
                     <td>

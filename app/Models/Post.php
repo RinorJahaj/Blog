@@ -14,7 +14,7 @@ class Post extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title', 'description', 'content', 'image'
+        'title', 'description', 'content', 'image', 'category_id'
     ];
 
 
@@ -25,5 +25,14 @@ class Post extends Model
     public function deleteImage()
     {
         Storage::delete($this->image);
+    }
+
+     /**
+     * Create e relationship which is simply a function
+     * 
+     */
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 }
